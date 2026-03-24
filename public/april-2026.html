@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>April 2026 &mdash; Mech Interp Puzzles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="month-page">
+    <div class="container">
+
+      <a class="back-link" href="index.html">&larr; All puzzles</a>
+
+      <h1>April 2026</h1>
+      <p class="subtitle">Max of List</p>
+
+      <p>
+        Given a list of numbers, predict the maximum. We have two models of varying complexity,
+        both attention-only transformers trained to 100% accuracy. Your goal: reverse-engineer
+        the algorithm each model has learned.
+      </p>
+      <p>
+        <strong>Puzzle 1a</strong> is the easier variant &mdash; each number (0&ndash;9) gets its own token,
+        and the model is just a single attention layer. A good place to start.
+      </p>
+      <p>
+        <strong>Puzzle 1b</strong> is a bit more complex &mdash; numbers range from 0&ndash;99, but each number is
+        tokenized as two separate digits (tens and ones). The model has two attention layers and
+        must first figure out how to somehow combine the information from both digits.
+      </p>
+
+      <!-- Get started -->
+      <div class="action-box">
+        <h2>Get started</h2>
+        <p>The starter notebook loads the pre-trained weights from HuggingFace and walks you through basic inference and attention visualization. Open it in Colab, save a copy to your own Drive, and start exploring.</p>
+        <div class="links">
+          <a class="btn btn-primary" href="https://colab.research.google.com/github/andyrdt/puzzles/blob/main/04_2026/demo_minimal.ipynb">Open starter notebook in Colab</a>
+        </div>
+      </div>
+
+      <!-- Submission -->
+      <div class="action-box">
+        <h2>Submit your solution</h2>
+        <p>
+          Submit a link to a Colab notebook with your findings. Your notebook should be
+          clean and easy to follow &mdash; use markdown cells to explain your reasoning clearly,
+          include well-labeled plots to support your claims, and walk the reader through the
+          algorithm(s) you found. Think of it as a presentation of your results, not scratch work.
+        </p>
+        <p>
+          A good workflow: do your rough exploration in a working notebook, then create a fresh
+          notebook for your submission where you present things clearly and concisely.
+        </p>
+        <p><strong>Deadline:</strong> April 30, 2026 (anywhere on Earth)</p>
+        <div class="links">
+          <a class="btn btn-primary" href="#" onclick="return false;">Submit via Google Form (coming soon)</a>
+          <!-- TODO: replace href with actual Google Form link -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <a href="index.html">Home</a> &nbsp;&middot;&nbsp; <a href="https://github.com/andyrdt/puzzles">GitHub</a>
+    </div>
+  </footer>
+
+</body>
+</html>

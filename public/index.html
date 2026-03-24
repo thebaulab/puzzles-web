@@ -3,11 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello World</title>
+  <title>Mech Interp Puzzles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello, World!</h1>
-  <p>This is great.</p>
-  <b>moep</b>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Mech Interp Puzzles</h1>
+      <p class="tagline">Monthly mechanistic interpretability challenges on small toy models. Learn by doing.</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about">
+    <div class="container">
+      <h2>What is this?</h2>
+      <p>
+        Each month we release a new puzzle: a small neural network trained on a toy algorithmic task.
+        The model is as simple as possible while achieving perfect accuracy.
+        Your goal is to reverse-engineer the algorithm the model has learned.
+      </p>
+      <p>
+        Inspired by <a href="https://arena-chapter1-transformer-interp.streamlit.app/Monthly_Algorithmic_Challenge">Callum McDougall's ARENA Monthly Algorithmic Challenges</a>,
+        these puzzles are an opportunity to get hands-on experience with mechanistic interpretability.
+        Practice the methods you've learned &mdash; whether from the
+        <a href="https://www.arena.education/">ARENA tutorials</a> or elsewhere &mdash; on
+        models small enough to fully understand.
+      </p>
+
+      <div class="highlight-box">
+        These puzzles are also a chance to get familiar with
+        <a href="https://nnsight.net/">nnsight</a> for model internals access,
+        and to be part of a growing interpretability community.
+        They're meant to be educational and fun.
+      </div>
+
+      <h2>How it works</h2>
+      <p>
+        Each puzzle comes with a starter Colab notebook, pre-trained model weights on HuggingFace,
+        and everything you need to get going. Poke around the weights, visualize attention patterns,
+        formulate hypotheses, and write up what you find.
+        When you're ready, submit your write-up via the provided form.
+      </p>
+      <p>
+        All code and training scripts are open source on <a href="https://github.com/andyrdt/puzzles">GitHub</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Puzzles -->
+  <section class="puzzles-section">
+    <div class="container">
+      <h2>Puzzles</h2>
+
+      <div class="puzzle-card">
+        <div class="puzzle-card-header">
+          <h3><a href="april-2026.html">April 2026 &mdash; Max of List</a></h3>
+          <span class="tag active">Active</span>
+        </div>
+        <p>
+          Given a list of numbers, predict the maximum. Two variants: a 1-layer transformer
+          on single-digit inputs, and a 2-layer transformer on two-digit inputs with digit-level
+          tokenization.
+        </p>
+        <div class="links">
+          <a class="btn btn-primary" href="april-2026.html">View puzzle &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Future months: copy the card above and update -->
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="https://github.com/andyrdt/puzzles">GitHub</a>
+    </div>
+  </footer>
+
 </body>
 </html>
