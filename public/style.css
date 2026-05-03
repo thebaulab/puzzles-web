@@ -189,6 +189,16 @@ a:hover { text-decoration: underline; }
   color: #fff;
 }
 
+.btn.disabled,
+.btn.disabled:hover {
+  background: #e0e0e0;
+  border-color: #d0d0d0;
+  color: #999;
+  cursor: not-allowed;
+  pointer-events: none;
+  text-decoration: none;
+}
+
 /* ── Month Page ── */
 .month-page { padding: 3rem 0 4rem; }
 
