@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>September 2026 &mdash; Mech Interp Puzzles</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧩</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="month-page">
+    <div class="container">
+
+      <a class="back-link" href="index.html">&larr; All puzzles</a>
+
+      <h1>September 2026 <span class="tag active">Active</span></h1>
+      <p class="subtitle">Set Difference in 108 Parameters</p>
+
+      <p>
+        A one-layer, two-head transformer has learned to identify the symbol removed
+        from a set. Its residual stream is only two-dimensional and the entire model
+        has 108 learned parameters. Your goal is to explain the algorithm implemented
+        by those parameters, end to end.
+      </p>
+
+      <div class="puzzle-detail">
+        <h3>The task</h3>
+        <p>
+          Choose four distinct symbols to form <code>X</code>, remove one symbol
+          <code>z</code> to obtain <code>Y</code>, and independently shuffle both sets.
+          The model sees
+          <code>[BOS] shuffle(X) [SEP] shuffle(Y) [SEP]</code>
+          and must predict <code>z</code> at the final separator.
+        </p>
+        <table class="spec-table">
+          <tr><td>Vocabulary</td><td>16 symbols, <code>a</code>&ndash;<code>p</code>, plus <code>BOS</code> and one shared <code>SEP</code></td></tr>
+          <tr><td>Set size</td><td>Exactly four distinct symbols</td></tr>
+          <tr><td>Architecture</td><td>One causal attention-only layer; no MLP, LayerNorm, or biases</td></tr>
+          <tr><td>Dimensions</td><td><code>d_model=2</code>, two heads, <code>d_head=1</code></td></tr>
+          <tr><td>Positions</td><td>Learned absolute position embeddings</td></tr>
+          <tr><td>Parameters</td><td>108</td></tr>
+          <tr><td>Accuracy</td><td>100% on all 1,048,320 valid prompts</td></tr>
+        </table>
+      </div>
+
+      <h2>What counts as a complete solution?</h2>
+      <p>
+        We are looking for a human-understandable computational account of how the
+        model obtains its answer. A complete solution should connect the entire path
+        from embeddings to attention to head outputs to the final readout.
+      </p>
+      <p>
+        Prioritize clarity and understanding over exhaustiveness. A short, well-explained
+        account of what the model actually computes is worth more than a long collection
+        of plots.
+      </p>
+
+      <div class="action-box">
+        <h2>Get started</h2>
+        <p>
+          The starter notebook loads the pre-trained weights from HuggingFace and walks you
+          through basic inference and attention visualization. Open it in Colab, save a copy
+          to your own Drive, and start exploring.
+        </p>
+        <div class="links">
+          <a class="btn btn-primary" href="https://colab.research.google.com/github/andyrdt/puzzles/blob/main/09_2026/starter_notebook.ipynb">Open starter notebook in Colab</a>
+          <a class="btn" href="https://github.com/andyrdt/puzzles/tree/main/09_2026">View code on GitHub</a>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <h2>Submit your solution</h2>
+        <p>
+          Submit a link to a clean Colab notebook that explains your findings. Include
+          well-labeled figures, state claims plainly, and distinguish observations from
+          causal evidence. Think of the notebook as a presentation of the algorithm you
+          found, not a transcript of exploratory work.
+        </p>
+        <p><strong>Deadline:</strong> September 30, 2026 (anywhere on Earth)</p>
+        <div class="links">
+          <a class="btn btn-primary" href="https://forms.gle/PhAkYVCetGARmCEs9">Submit via Google Form</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <a href="index.html">Home</a> &nbsp;&middot;&nbsp; <a href="https://github.com/andyrdt/puzzles">GitHub</a>
+    </div>
+  </footer>
+
+</body>
+</html>
