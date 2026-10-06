@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>October 2026 &mdash; Mech Interp Puzzles</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧩</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="month-page">
+    <div class="container">
+
+      <a class="back-link" href="index.html">&larr; All puzzles</a>
+
+      <h1>October 2026 <span class="tag active">Active</span></h1>
+      <p class="subtitle">Set Difference, Part 2</p>
+
+      <p>
+        A two-layer, single-head-per-layer transformer reads a set of symbols followed by a
+        permutation of that set, one symbol at a time, and predicts which symbols could still
+        come next. Your goal is to explain the algorithm it implements, end to end.
+      </p>
+
+      <div class="puzzle-detail">
+        <h3>The task</h3>
+        <p>
+          Choose <code>K</code> distinct symbols to form <code>X</code> (<code>2 &le; K &le; 8</code>),
+          and let <code>Y</code> be an independent random permutation of <code>X</code>.
+          The model sees
+          <code>[BOS] x1 &hellip; xK [SEP] y1 &hellip; yK [EOS]</code>.
+          At <code>SEP</code> and after each <code>yi</code>, it is trained to output the uniform
+          distribution over the symbols of <code>X</code> that have not yet appeared in <code>Y</code>;
+          once all of <code>Y</code> has been read, it predicts <code>EOS</code>.
+        </p>
+        <table class="spec-table">
+          <tr><td>Vocabulary</td><td>16 symbols, <code>a</code>&ndash;<code>p</code>, plus <code>BOS</code>, <code>SEP</code>, and <code>EOS</code></td></tr>
+          <tr><td>Set size</td><td><code>K</code> = 2&ndash;8 distinct symbols, mixed during training</td></tr>
+          <tr><td>Architecture</td><td>Two causal attention-only layers, one head each; RMSNorm before each attention layer and before the unembedding; no MLPs or biases</td></tr>
+          <tr><td>Dimensions</td><td><code>d_model=64</code>, <code>d_head=64</code></td></tr>
+          <tr><td>Positions</td><td>Rotary position embeddings (RoPE)</td></tr>
+          <tr><td>Parameters</td><td>35,392</td></tr>
+          <tr><td>Accuracy</td><td>Every valid next token outranks every invalid one, at every position, on all held-out sets tested</td></tr>
+        </table>
+      </div>
+
+      <h2>What counts as a complete solution?</h2>
+      <p>
+        We are looking for a human-understandable computational account of how the
+        model obtains its answer. A complete solution should connect the entire path
+        from embeddings to attention to head outputs to the final readout.
+      </p>
+      <p>
+        Prioritize clarity and understanding over exhaustiveness. A short, well-explained
+        account of what the model actually computes is worth more than a long collection
+        of plots.
+      </p>
+
+      <div class="action-box">
+        <h2>Get started</h2>
+        <p>
+          The starter notebook loads the pre-trained weights from HuggingFace and walks you
+          through basic inference and attention visualization. Open it in Colab, save a copy
+          to your own Drive, and start exploring.
+        </p>
+        <div class="links">
+          <a class="btn btn-primary" href="https://colab.research.google.com/github/andyrdt/puzzles/blob/main/10_2026/starter_notebook.ipynb">Open starter notebook in Colab</a>
+          <a class="btn" href="https://github.com/andyrdt/puzzles/tree/main/10_2026">View code on GitHub</a>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <h2>Submit your solution</h2>
+        <p>
+          Submit a link to a clean Colab notebook that explains your findings. Include
+          well-labeled figures, state claims plainly, and distinguish observations from
+          causal evidence. Think of the notebook as a presentation of the algorithm you
+          found, not a transcript of exploratory work.
+        </p>
+        <p><strong>Deadline:</strong> October 31, 2026 (anywhere on Earth)</p>
+        <div class="links">
+          <a class="btn btn-primary" href="https://forms.gle/mGP3dEyhS8atL7Z16">Submit via Google Form</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <a href="index.html">Home</a> &nbsp;&middot;&nbsp; <a href="https://github.com/andyrdt/puzzles">GitHub</a>
+    </div>
+  </footer>
+
+</body>
+</html>
